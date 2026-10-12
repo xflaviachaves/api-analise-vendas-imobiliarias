@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: API Gestão Imobiliária UNIVALI Hands On Work VII
+  description: >
+    Especificação dos serviços web HTTP/REST desenvolvidos para processamento de transações imobiliárias e apoio ao Núcleo de Apoio ao Migrante (NAM).
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Servidor de Desenvolvimento Local
+paths:
+  /api/vendas/acumulado-por-imovel:
+    get:
+      summary: Retorna o valor acumulado em pagamentos por imóvel (Gráfico A)
+      responses:
+        '200':
+          description: Sucesso ao processar os dados de pagamentos por imóvel.
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/vendas/total-por-periodo:
+    get:
+      summary: Retorna o valor total das vendas acumuladas por mês/ano (Gráfico B)
+      responses:
+        '200':
+          description: Sucesso ao agrupar vendas por período.
+          content:
+            application/json:
+              schema:
+                type: array
+  /api/vendas/percentual-por-tipo:
+    get:
+      summary: Retorna o percentual do valor total por modalidade de imóvel (Gráfico C)
+      responses:
+        '200':
+          description: Sucesso ao calcular os percentuais por tipo de imóvel.
+          content:
+            application/json:
+              schema:
+                type: object
